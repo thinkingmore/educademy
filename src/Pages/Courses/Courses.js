@@ -24,7 +24,8 @@ const Courses = () => {
                                                 <span>Price: {cs.price}</span>
                                                 <span>Rating: {cs.rating}</span>
                                             </div>
-                                            <Link to={`${cs.id}`}>Visit</Link>
+                                            <Link to={`${cs.id}`}><button type="button" className="btn btn-primary mt-4">View</button>
+</Link>
                                         </div>
                                     </div>
                                 </div> 

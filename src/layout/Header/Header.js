@@ -1,8 +1,17 @@
-import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Header = () => {
+    const { user, logOut }  = useContext(AuthContext);
+    
+    const handleLogOut = () => {
+        logOut()
+        .then(()=> {})
+        .catch(error => console.error(error))
+    }
     return (
             <div>
             <Navbar collapseOnSelect className="mb-4" expand="lg" bg="light" variant="light">
@@ -18,7 +27,7 @@ const Header = () => {
                     </Nav>
                     <Nav>
                         <Nav.Link href="#deets">
-                            {/* {
+                            {
                                 user?.uid ?
                                 <>
                                     <span>{user?.displayName}</span>
@@ -29,15 +38,15 @@ const Header = () => {
                                     <Link to="/login">Login</Link>
                                     <Link to="/register">register</Link>
                                 </>
-                            } */}
+                            }
                         </Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
-                            {/* { user?.photoURL ?
+                            { user?.photoURL ?
                             <Image 
                             style={{height:'30px'}} roundedCircle 
                             src={user.photoURL}></Image>
                             : <FaUser></FaUser>
-                            } */}
+                            }
                         </Nav.Link>
                     </Nav>
                     <div className='d-lg-none'>
