@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import SideNav from '../../layout/SideNav/SideNav';
 
 const Courses = () => {
@@ -24,6 +24,7 @@ const Courses = () => {
                                                 <span>Price: {cs.price}</span>
                                                 <span>Rating: {cs.rating}</span>
                                             </div>
+                                            <Link to={`${cs.id}`}>Visit</Link>
                                         </div>
                                     </div>
                                 </div> 
