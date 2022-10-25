@@ -21,8 +21,10 @@ export const routes = createBrowserRouter([
                     element:<Home></Home>
                 },
                 {
-                    path:'/courses',
-                    element:<Courses></Courses>
+                    path:'/courses/:id',
+                    element:<Courses></Courses>,
+                    loader: ({params}) => fetch(`https://educademy-server.vercel.app/categories/${params.id}`)
+                    
                 },
                 {
                     path: '/blog',
