@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { redirect, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 
@@ -33,6 +33,14 @@ const Login = () => {
             setError(error.message)
         })
     }
+    
+
+    const noAccount = (e) => {
+        const yes = (e.target.checked);
+        if(yes === true){
+            navigate('/register');
+        }
+    }
 
     return (
         <div>        
@@ -52,7 +60,11 @@ const Login = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-            </Form>
+                <div class="form-check form-switch my-4">
+                    <input onClick={noAccount} class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaul/"/>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Don't have an account yet,go to register page.</label>
+                </div>
+            </Form>        
         </div>
     );
 };
