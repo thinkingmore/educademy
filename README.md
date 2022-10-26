@@ -2,6 +2,20 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Live link:
+https://educademy-client-app.web.app/
+
+
+# Project Description
+This is a learning paltform app built with React.This React App is made using react-bootstrap,bootstrap,react-router dom and firebase.The major features and functionalities of this app are following.
+
+* It dynammically loads course data.The user can visit course by catefory.
+* Only logged in user can see course details and checkout page.
+* User can login using email,password,google and github account.
+* It use firebase authentication system and show error if user has made a mistake while sign in.
+* User can also create account using the register page.
+* The users are redirected to the course checkout page which they wanted visit by clicking "get premium acceess" button after sign in.
+
 ## Available Scripts
 
 In the project directory, you can run:
