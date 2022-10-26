@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import { Button, Container } from 'react-bootstrap';
 import { FaArrowCircleRight } from 'react-icons/fa';
@@ -39,7 +39,7 @@ const Course = () => {
                     <span>Rating: {course.rating}</span>
                     <span>Review: {course.review}</span>
                 </div>
-                <Button style={{width:'10rem'}} variant="primary">Buy</Button>
+                <Link to={`checkout/${course.id}`}><Button size="md" variant="primary">Get premium access</Button></Link>
                 </Card.Body>
             </Card>
         </Container>
