@@ -52,6 +52,10 @@ const Header = () => {
                     <div className='d-lg-none'>
                         {/* <LeftSideNav></LeftSideNav> */}
                     </div>
+                    <div class="form-check form-switch ms-2 ">
+                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaul/"/>
+                        <label className="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
+                   </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
