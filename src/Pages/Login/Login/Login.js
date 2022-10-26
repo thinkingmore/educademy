@@ -1,6 +1,8 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { redirect, useLocation, useNavigate } from 'react-router-dom';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 
@@ -8,7 +10,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const Login = () => {
 
     const [error, setError] = useState('');
-    const { signIn } = useContext(AuthContext);
+    const { signIn, providerLogin } = useContext(AuthContext);
     
     const navigate = useNavigate();
     const location = useLocation();
@@ -42,9 +44,20 @@ const Login = () => {
         }
     }
 
+    const googleProvider = new GoogleAuthProvider();
+    
+    const handleGoogleSignIn = () => {
+        providerLogin (googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error => console.error(error))
+    }
+
     return (
-        <div>        
-            <Form onSubmit={handleSubmit} className="w-50 mx-auto mt-4">
+        <div className='w-50 mx-auto'>        
+            <Form onSubmit={handleSubmit} className="mt-4">
                 <h3 className='my-4'>Please Login</h3>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -64,7 +77,12 @@ const Login = () => {
                     <input onClick={noAccount} class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaul/"/>
                     <label class="form-check-label" for="flexSwitchCheckDefault">Don't have an account yet,go to register page.</label>
                 </div>
-            </Form>        
+            </Form>
+            <>
+                <Button onClick={handleGoogleSignIn} className='me-4' variant="primary"><FaGoogle/><span className='ms-2'>Login with Google</span></Button>
+                <Button className='me-4' variant="primary"><FaGithub/><span className='ms-2'>Login with Github</span></Button>
+                
+            </>        
         </div>
     );
 };
