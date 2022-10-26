@@ -10,6 +10,7 @@ import FAQ from '../../Pages/FAQ/FAQ';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login/Login';
 import Register from '../../Pages/Login/Register/Register';
+import PageNotFound from '../../Pages/PageNotFound/PageNotFound';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 
@@ -59,6 +60,10 @@ export const routes = createBrowserRouter([
                     path: '/courses/:id/:id/checkout/:id',
                     element:<PrivateRoute><Checkout></Checkout></PrivateRoute>,
                     loader: ({params}) => fetch(`https://educademy-server.vercel.app/courses/${params.id}`)
+                },
+                {
+                    path: '*',
+                    element:<PageNotFound></PageNotFound>
                 }
             ]
         }
