@@ -3,10 +3,22 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import { Button, Container } from 'react-bootstrap';
 import { FaArrowCircleRight } from 'react-icons/fa';
+import jsPDF from 'jspdf';
 
 const Course = () => {
     const course = useLoaderData();
-    console.log(course);
+    
+    
+    const print = () => {
+            const doc = new jsPDF();
+            const details = document.getElementById("csName").textContent;
+            const price = document.getElementById("csPrice").textContent;
+            doc.text(details,10,10)
+            doc.text(price,30,30)
+            doc.save('welcome.pdf')
+         }
+    
+   
     return (
         <Container>
             <Card className='my-4'>
@@ -14,8 +26,8 @@ const Course = () => {
                 <Card.Body>
                     <Card.Title>Before you purchase this course please read the following:</Card.Title>
                     <Card.Text>
-                        <ol>
-                            <li>This course gives your access to course materials and videos for personal use.
+                        <ol id='outline'>
+                            <li>This course gives you access to course materials and videos for personal use.
                                 You can not use those materials for public distribution.
                                 You can not share the course video or materials</li>
                             <li>You can not any parts of course video or materials and share those 
@@ -24,18 +36,18 @@ const Course = () => {
                             <li>You can not sell or transfer your access too this course.</li>    
                         </ol>
                     </Card.Text>
-                    <Button variant="primary">Download <FaArrowCircleRight/></Button>
+                    <Button onClick={print} variant="primary">Download <FaArrowCircleRight/></Button>
                 </Card.Body>
             </Card>
-            <Card style={{width:'30rem'}}>
+            <Card id="courseDetails" style={{width:'30rem'}}>
                 <Card.Img variant="top" src={course.img_url} />
                 <Card.Body>
-                <Card.Title>{course.course_title}</Card.Title>
+                <Card.Title id="csName">{course.course_title}</Card.Title>
                 <Card.Text>
                 {course.details}
                 </Card.Text>
                 <div className='d-flex justify-content-between mb-4 fw-bold'>
-                    <span>Price:  {course.price}</span>
+                    <span id="csPrice">Price:  {course.price}</span>
                     <span>Rating: {course.rating}</span>
                     <span>Review: {course.review}</span>
                 </div>

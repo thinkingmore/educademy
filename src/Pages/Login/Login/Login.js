@@ -84,8 +84,8 @@ const Login = () => {
                     Submit
                 </Button>
                 <div class="form-check form-switch my-4">
-                    <input onClick={noAccount} class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaul/"/>
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Don't have an account yet,go to register page.</label>
+                    <input onClick={noAccount} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaul/"/>
+                    <label class="form-check-label" htmlFor="flexSwitchCheckDefault">Don't have an account yet,go to register page.</label>
                 </div>
             </Form>
             <>

@@ -5,6 +5,8 @@ import { useLoaderData } from 'react-router-dom';
 const Checkout = () => {
     const course = useLoaderData();
     console.log(course);
+
+   
     return (
         <Container>
             <h4 className='my-4 text-center'>Course successfully added</h4>
