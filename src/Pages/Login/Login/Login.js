@@ -89,8 +89,8 @@ const Login = () => {
                 </div>
             </Form>
             <>
-                <Button onClick={handleGoogleSignIn} className='me-4' variant="primary"><FaGoogle/><span className='ms-2'>Login with Google</span></Button>
-                <Button onClick={handleGithubSignIn} className='me-4' variant="primary"><FaGithub/><span className='ms-2'>Login with Github</span></Button>
+                <Button onClick={handleGoogleSignIn} className='me-4 my-2' variant="primary"><FaGoogle/><span className='ms-2'>Login with Google</span></Button>
+                <Button onClick={handleGithubSignIn} className='me-4 my-2' variant="primary"><FaGithub/><span className='ms-2'>Login with Github</span></Button>
                 
             </>        
         </div>

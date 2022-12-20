@@ -13,8 +13,9 @@ const Course = () => {
             const doc = new jsPDF();
             const details = document.getElementById("csName").textContent;
             const price = document.getElementById("csPrice").textContent;
-            doc.text(details,10,10)
-            doc.text(price,30,30)
+            doc.setFontSize(20)
+            doc.text(35,25,details)
+            doc.text(60,50,price)
             doc.save('welcome.pdf')
          }
     
@@ -39,7 +40,7 @@ const Course = () => {
                     <Button onClick={print} variant="primary">Download <FaArrowCircleRight/></Button>
                 </Card.Body>
             </Card>
-            <Card id="courseDetails" style={{width:'30rem'}}>
+            <Card id="courseDetails" style={{width:"60%"}}>
                 <Card.Img variant="top" src={course.img_url} />
                 <Card.Body>
                 <Card.Title id="csName">{course.course_title}</Card.Title>
